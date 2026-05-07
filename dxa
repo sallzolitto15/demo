@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusBank — Smart Banking for the Modern World</title>
+
+  <!-- ============================================================
+       QUALTRICS DXA SNIPPET — PASTE YOUR CODE SNIPPET BELOW
+       ============================================================ -->
+
+
+  <!-- ============================================================
+       END QUALTRICS DXA SNIPPET
+       ============================================================ -->
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1F3A;
+      --navy-mid: #1A3558;
+      --gold: #C8963E;
+      --gold-light: #E8B96A;
+      --cream: #F7F4EE;
+      --cream-dark: #EDE9E0;
+      --text: #1A1A2E;
+      --text-muted: #5A6478;
+      --white: #FFFFFF;
+      --success: #1D6A45;
+      --success-bg: #E8F5EE;
+      --border: rgba(11,31,58,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,31,58,0.96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      border-bottom: 1px solid rgba(200,150,62,0.25);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo span.accent { color: var(--gold); }
+
+    .nav-logo .logomark {
+      width: 32px; height: 32px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 600; color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      font-weight: 600 !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,150,62,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,150,62,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,150,62,0.12) 0%, transparent 70%);
+      right: -100px; top: -100px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,150,62,0.15);
+      border: 1px solid rgba(200,150,62,0.3);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 460px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+    /* ── HERO DASHBOARD CARD ── */
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .card-header {
+      background: rgba(255,255,255,0.06);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card-header-title {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card-dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #FF5F56; }
+    .dot-y { background: #FFBD2E; }
+    .dot-g { background: #27C93F; }
+
+    .card-body { padding: 24px 20px; }
+
+    .balance-label { font-size: 12px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .balance-amount { font-family: 'DM Serif Display', serif; font-size: 38px; color: var(--white); margin-bottom: 4px; }
+    .balance-change { font-size: 13px; color: #4ADE80; display: flex; align-items: center; gap: 4px; margin-bottom: 24px; }
+
+    .mini-chart {
+      height: 70px;
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      background: rgba(200,150,62,0.3);
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .bar:hover { background: rgba(200,150,62,0.7); }
+    .bar.active { background: var(--gold); }
+
+    .card-transactions { display: flex; flex-direction: column; gap: 12px; }
+
+    .txn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .txn-left { display: flex; align-items: center; gap: 12px; }
+
+    .txn-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+
+    .txn-name { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .txn-date { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .txn-amount { font-size: 14px; font-weight: 500; }
+    .txn-amount.debit { color: rgba(255,255,255,0.7); }
+    .txn-amount.credit { color: #4ADE80; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .trust-icon {
+      width: 20px; height: 20px;
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 100px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-wrap {
+      padding: 100px 5%;
+      background: var(--white);
+    }
+
+    .section-wrap.alt { background: var(--cream); }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 60px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .feature-card:hover { box-shadow: 0 8px 40px rgba(11,31,58,0.1); transform: translateY(-3px); }
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+    .feature-desc { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+
+    /* ── PRODUCTS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: box-shadow 0.25s, transform 0.25s;
+      cursor: pointer;
+    }
+
+    .product-card:hover { box-shadow: 0 16px 48px rgba(11,31,58,0.12); transform: translateY(-4px); }
+
+    .product-card.featured {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+
+    .product-header {
+      padding: 32px 28px 28px;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .product-header.gold-bg { background: linear-gradient(135deg, #8B5E20, #C8963E); }
+    .product-header.dark-bg { background: linear-gradient(135deg, #1A1A2E, #2D2D4E); }
+
+    .product-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .product-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--white); margin-bottom: 6px; }
+    .product-tagline { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+    .product-body { padding: 28px; }
+
+    .product-rate {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .rate-num { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--navy); }
+    .rate-label { font-size: 13px; color: var(--text-muted); }
+
+    .product-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+    .product-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .product-features li::before {
+      content: '';
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--success-bg);
+      border: 1.5px solid var(--success);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8l3 3 5-5' stroke='%231D6A45' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .btn-card {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1.5px solid var(--navy);
+      background: transparent;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-card:hover { background: var(--navy); color: var(--white); }
+    .btn-card.primary { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+    .btn-card.primary:hover { background: var(--gold-light); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .author-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .author-role { font-size: 12px; color: var(--text-muted); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--navy);
+      padding: 100px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,150,62,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,150,62,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cta-band-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+
+    .cta-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .cta-band p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .cta-band-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #07131F;
+      padding: 64px 5% 32px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer-brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand-desc { font-size: 14px; line-height: 1.65; max-width: 260px; margin-bottom: 24px; }
+
+    .footer-col-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="logomark">N</div>
+      Nexus<span class="accent">Bank</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="nav-cta">Open Account</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">FDIC Insured · Est. 1987</div>
+        <h1>Banking built for <em>your future,</em> not the past.</h1>
+        <p class="hero-sub">NexusBank combines institutional-grade security with the speed and simplicity of modern finance. Manage your wealth, investments, and everyday spending in one place.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary" id="hero-cta-primary">Open an Account →</a>
+          <a href="#products" class="btn-outline" id="hero-cta-secondary">Explore Products</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="card-header">
+          <span class="card-header-title">My Portfolio</span>
+          <div class="card-dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="balance-label">Total Balance</div>
+          <div class="balance-amount">$148,320.50</div>
+          <div class="balance-change">↑ +3.2% this month</div>
+
+          <div class="mini-chart">
+            <div class="bar" style="height: 40%"></div>
+            <div class="bar" style="height: 55%"></div>
+            <div class="bar" style="height: 48%"></div>
+            <div class="bar" style="height: 70%"></div>
+            <div class="bar" style="height: 62%"></div>
+            <div class="bar" style="height: 80%"></div>
+            <div class="bar" style="height: 75%"></div>
+            <div class="bar active" style="height: 90%"></div>
+          </div>
+
+          <div class="card-transactions">
+            <div class="txn">
+              <div class="txn-left">
+                <div class="txn-icon">💳</div>
+                <div>
+                  <div class="txn-name">Amazon Prime</div>
+                  <div class="txn-date">Today, 9:14 AM</div>
+                </div>
+              </div>
+              <div class="txn-amount debit">-$14.99</div>
+            </div>
+            <div class="txn">
+              <div class="txn-left">
+                <div class="txn-icon">📈</div>
+                <div>
+                  <div class="txn-name">Dividend — MSFT</div>
+                  <div class="txn-date">Yesterday</div>
+                </div>
+              </div>
+              <div class="txn-amount credit">+$84.30</div>
+            </div>
+            <div class="txn">
+              <div class="txn-left">
+                <div class="txn-icon">🏠</div>
+                <div>
+                  <div class="txn-name">Mortgage Payment</div>
+                  <div class="txn-date">May 1</div>
+                </div>
+              </div>
+              <div class="txn-amount debit">-$2,400.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">🔒</span> 256-bit Encryption</div>
+    <div class="trust-item"><span class="trust-icon">🛡️</span> FDIC Insured up to $250K</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Instant Transfers</div>
+    <div class="trust-item"><span class="trust-icon">🌐</span> 24/7 Global Access</div>
+    <div class="trust-item"><span class="trust-icon">📞</span> Live Support</div>
+  </div>
+
+  <!-- ── FEATURES ── -->
+  <div class="section-wrap" id="features">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Why NexusBank</div>
+        <h2 class="section-title">Everything you need,<br>nothing you don't.</h2>
+        <p class="section-sub">From everyday transactions to long-term wealth building, our platform grows with your financial needs.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal" id="feature-1">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title">Instant Payments</div>
+          <p class="feature-desc">Send and receive money in seconds — domestically or internationally — with real-time confirmation and zero hidden fees.</p>
+        </div>
+        <div class="feature-card reveal" id="feature-2">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Smart Budgeting</div>
+          <p class="feature-desc">AI-powered spending insights automatically categorize your transactions and alert you before you overspend.</p>
+        </div>
+        <div class="feature-card reveal" id="feature-3">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">Mobile-First Banking</div>
+          <p class="feature-desc">Deposit cheques, manage cards, apply for loans, and track investments — all from your smartphone, anywhere in the world.</p>
+        </div>
+        <div class="feature-card reveal" id="feature-4">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">Biometric Security</div>
+          <p class="feature-desc">Face ID, fingerprint, and behavioral authentication keep your money safe without slowing you down.</p>
+        </div>
+        <div class="feature-card reveal" id="feature-5">
+          <div class="feature-icon">💼</div>
+          <div class="feature-title">Business Tools</div>
+          <p class="feature-desc">Invoicing, payroll, multi-user accounts, and accounting integrations built directly into your NexusBank dashboard.</p>
+        </div>
+        <div class="feature-card reveal" id="feature-6">
+          <div class="feature-icon">🌱</div>
+          <div class="feature-title">ESG Investing</div>
+          <p class="feature-desc">Build a portfolio aligned with your values. Filter investments by environmental, social, and governance criteria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTS ── -->
+  <div class="section-wrap alt" id="products">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Our Products</div>
+        <h2 class="section-title">The right account<br>for every stage of life.</h2>
+        <p class="section-sub">Whether you're saving for your first home or managing a portfolio of assets, we have a product designed around you.</p>
+      </div>
+
+      <div class="products-grid reveal">
+        <div class="product-card">
+          <div class="product-header">
+            <div class="product-name">Nexus Essential</div>
+            <div class="product-tagline">Free everyday banking</div>
+          </div>
+          <div class="product-body">
+            <div class="product-rate">
+              <span class="rate-num">$0</span>
+              <span class="rate-label">/ month</span>
+            </div>
+            <ul class="product-features">
+              <li>Visa debit card included</li>
+              <li>2 free ATM withdrawals/month</li>
+              <li>Mobile cheque deposit</li>
+              <li>Instant peer-to-peer payments</li>
+            </ul>
+            <button class="btn-card" id="product-essential-cta">Get Started</button>
+          </div>
+        </div>
+
+        <div class="product-card featured">
+          <div class="product-header gold-bg">
+            <span class="product-badge">Most Popular</span>
+            <div class="product-name">Nexus Premier</div>
+            <div class="product-tagline">For growing wealth</div>
+          </div>
+          <div class="product-body">
+            <div class="product-rate">
+              <span class="rate-num">$12</span>
+              <span class="rate-label">/ month</span>
+            </div>
+            <ul class="product-features">
+              <li>4.85% APY on savings</li>
+              <li>Unlimited ATM fee rebates</li>
+              <li>Travel insurance included</li>
+              <li>Priority 24/7 concierge</li>
+              <li>Cashback on all purchases</li>
+            </ul>
+            <button class="btn-card primary" id="product-premier-cta">Open Premier Account</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-header dark-bg">
+            <div class="product-name">Nexus Wealth</div>
+            <div class="product-tagline">Private banking suite</div>
+          </div>
+          <div class="product-body">
+            <div class="product-rate">
+              <span class="rate-num">Custom</span>
+              <span class="rate-label">pricing</span>
+            </div>
+            <ul class="product-features">
+              <li>Dedicated relationship manager</li>
+              <li>Portfolio management services</li>
+              <li>Estate & trust planning</li>
+              <li>Exclusive lending rates</li>
+            </ul>
+            <button class="btn-card" id="product-wealth-cta">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TESTIMONIALS ── -->
+  <div class="section-wrap">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Customer Stories</div>
+        <h2 class="section-title">Trusted by over<br>2.4 million customers.</h2>
+      </div>
+
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Switching to NexusBank was the single best financial decision I've made. The budgeting tools showed me I was wasting $400/month without even realising it."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #1A3558;">SR</div>
+            <div>
+              <div class="author-name">Sarah Rothenberg</div>
+              <div class="author-role">Premier Account Holder · 3 years</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Running payroll for 40 staff through NexusBank Business is seamless. Customer support is genuinely the best in the industry — real humans who actually help."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #8B5E20;">JM</div>
+            <div>
+              <div class="author-name">James Moretti</div>
+              <div class="author-role">Business Account · CEO, Moretti Foods</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The Wealth team helped me restructure my estate plan and put together an investment strategy I actually understand. Worth every penny and then some."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #1D6A45;">PL</div>
+            <div>
+              <div class="author-name">Patricia Liang</div>
+              <div class="author-role">Nexus Wealth · 6 years</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA BAND ── -->
+  <div class="cta-band" id="contact">
+    <div class="cta-band-grid"></div>
+    <div class="cta-band-inner">
+      <h2>Ready to take control of your financial future?</h2>
+      <p>Open an account in under 5 minutes. No branch visit required. No hidden fees. Just banking that works for you.</p>
+      <div class="cta-band-actions">
+        <a href="#" class="btn-primary" id="footer-cta-primary">Open an Account →</a>
+        <a href="#" class="btn-outline" id="footer-cta-secondary">Talk to an Advisor</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">
+            <div class="logomark" style="width:30px;height:30px;background:var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#0B1F3A;">N</div>
+            NexusBank
+          </div>
+          <p class="footer-brand-desc">Institutional-grade banking made accessible. NexusBank is a registered financial institution, FDIC insured up to $250,000.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Products</div>
+          <ul class="footer-links">
+            <li><a href="#">Nexus Essential</a></li>
+            <li><a href="#">Nexus Premier</a></li>
+            <li><a href="#">Nexus Wealth</a></li>
+            <li><a href="#">Business Banking</a></li>
+            <li><a href="#">Mortgages</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Investor Relations</a></li>
+            <li><a href="#">Sustainability</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Fraud Protection</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 NexusBank, N.A. All rights reserved. Member FDIC. Equal Housing Lender.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
